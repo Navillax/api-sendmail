@@ -1,0 +1,71 @@
+###1.Prueba de correo exitoso###
+
+POST    http://localhost/api/v1/endpoint-webservice/
+Content-Type: "application/json"
+
+{
+  "name":"Odofre Tamayo",
+  "email":"odofregofre@ejemplo.com",
+  "message":"Mi nombre significa buen hombre."
+}
+
+###Devuelve###
+# {
+#   "status": "success",
+#   "message": "Correo enviado correctamente."
+# }
+###Correcto###
+
+###2.Prueba de correo con algún dato faltante###
+
+POST    http://localhost/api/v1/endpoint-webservice/
+Content-Type: "application/json"
+
+{
+    "name":"",
+    "email":"odofregofre@ejemplo.com",
+    "message":"Mi nombre significa buen hombre."
+}
+
+###Devuelve###
+# {
+#   "status": "error",
+#   "message": "Datos inv\u00e1lidos."
+# }
+###Correcto###
+
+###3.Prueba de correo con email erróneo###
+
+POST    http://localhost/api/v1/endpoint-webservice/
+Content-Type: "application/json"
+
+{
+    "name":"Maria",
+    "email":"odofrAUejemplo.com",
+    "message":"Mi nombre significa buen hombre."
+}
+
+###Devuelve###
+# {
+#   "status": "error",
+#   "message": "Datos inv\u00e1lidos."
+# }
+###Correcto###
+
+###4.Prueba de correo con todos los dato faltante###
+
+POST    http://localhost/api/v1/endpoint-webservice/
+Content-Type: "application/json"
+
+{
+    "name":"",
+    "email":"",
+    "message":"pERICo"
+}
+
+###Devuelve###
+# {
+#   "status": "error",
+#   "message": "Datos inv\u00e1lidos."
+# }
+###Correcto###
